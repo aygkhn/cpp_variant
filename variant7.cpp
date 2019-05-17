@@ -6,7 +6,7 @@ int main()
 {
 	try
 	{
-		using age_t		= int;
+		using age_t	= int;
 		using gender_t	= char;
 		using name_t	= std::string;
 
