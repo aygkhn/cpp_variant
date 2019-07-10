@@ -1,18 +1,19 @@
-//std::monostate
+// std::monostate
 
 #include <variant>
 #include <iostream>
 
 class Data {
 public:
-	Data(int x) : mx{x} {}
+	Data(int x) : mx{ x } {}
+	//class Data has no default ctor
 private:
 	int mx;
 };
 
 int main()
 {
-	//std::variant<Data, int, double> v1;
+	//std::variant<Data, int, double> v1;  //ill-formed
 	std::variant<std::monostate, Data, int, double> v2;
 
 	std::cout << "index = " << v2.index() << "\n";  //0
@@ -35,5 +36,4 @@ int main()
 	std::cout << "index = " << v2.index() << "\n";
 	v2 = std::monostate{};
 	std::cout << "index = " << v2.index() << "\n";
-
 }
